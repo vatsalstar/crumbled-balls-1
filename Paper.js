@@ -1,24 +1,28 @@
 class Paper{
-constructor(x,y,radius){
+constructor(x,y,r){
     var options ={
         isSstatic:false,
-        restritution:0.3,
-        friction:0.05,
+        restitution:0.3,
+        friction:0.5,
         density:1.2
     }
 
-    this.Bodiesrectangle(x,y,50,50,options);
-    this.width - 50;
-    this.height - 50;
+    this.x=x;
+    this.y=y;
+    this.r=r;
 
-    World.add(world, this.body)
+    this.body=Bodies.circle(this.x,this.y,this.r/2,options);
 
-function KeyPressed (){
-if(KeyCode=== UP_ARROW){
- matter.body.applyForce(PaperObject.body,papaerObject.body.position,{x:85,y:-85})
+    World.add(world, this.body);
 
 }
-}
 
+display(){
+    push();
+    translate(this.body.position.x,this.body.position.y);
+    rectMode(CENTER);
+    fill("pink");
+    ellipse(0,0,this.r,this.r);
+    pop();
 }
 }
